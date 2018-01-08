@@ -1,0 +1,570 @@
+{
+	"info": {
+		"name": "Health Provider API",
+		"_postman_id": "bc991f59-c8a8-0fa0-e735-27622130a6cb",
+		"description": "Sample requests for health provider challenge.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Providers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/providers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"providers"
+					]
+				},
+				"description": "Retrieves all providers"
+			},
+			"response": []
+		},
+		{
+			"name": "Provider Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/providers?city=Eureka",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"providers"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "Eureka",
+							"equals": true
+						}
+					]
+				},
+				"description": "Retrieves specific provider by name."
+			},
+			"response": []
+		},
+		{
+			"name": "Provider Street Address",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/providers?street_address=2700 DOLBEER ST",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"providers"
+					],
+					"query": [
+						{
+							"key": "street_address",
+							"value": "2700 DOLBEER ST",
+							"equals": true
+						}
+					]
+				},
+				"description": "Retrieves specific street name."
+			},
+			"response": []
+		},
+		{
+			"name": "Provider City",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/providers?city=Eureka",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"providers"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "Eureka",
+							"equals": true
+						}
+					]
+				},
+				"description": "Retrieves specific city."
+			},
+			"response": []
+		},
+		{
+			"name": "Provider State",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/providers?state=CA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"providers"
+					],
+					"query": [
+						{
+							"key": "state",
+							"value": "CA",
+							"equals": true
+						}
+					]
+				},
+				"description": "Retrieves specific state."
+			},
+			"response": []
+		},
+		{
+			"name": "Provider Zip Code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/providers?zip_code=90210",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"providers"
+					],
+					"query": [
+						{
+							"key": "zip_code",
+							"value": "90210",
+							"equals": true
+						}
+					]
+				},
+				"description": "Retrieves specific zip code."
+			},
+			"response": []
+		},
+		{
+			"name": "Total Discharge Range",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d8a906aa-b83a-487d-afad-de31710a4c47",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Check that correct providers are retrieved for given medicare payment range\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(\"Hey:\"+jsonData);",
+							"    var expectedResponse = pm.environment.get(\"total-discharges-300-301-range\");",
+							"    pm.expect(JSON.stringify(jsonData)).to.deep.equal(expectedResponse);",
+							"",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/providers?min_discharges=300&max_discharges=301",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"providers"
+					],
+					"query": [
+						{
+							"key": "min_discharges",
+							"value": "300",
+							"equals": true
+						},
+						{
+							"key": "max_discharges",
+							"value": "301",
+							"equals": true
+						}
+					]
+				},
+				"description": "Retrieves providers that have discharges between max and min value."
+			},
+			"response": []
+		},
+		{
+			"name": "Average Covered Charges Range",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dbbc4ad8-7943-494c-aaae-5598298a8ebe",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Check that correct providers are retrieved for given medicare payment range\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(\"Hey:\"+jsonData);",
+							"    var expectedResponse = pm.environment.get(\"average-charge-30000-30003-range\");",
+							"    pm.expect(JSON.stringify(jsonData)).to.deep.equal(expectedResponse);",
+							"",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/providers?min_average_covered_charges=30000&max_average_covered_charges=30003",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"providers"
+					],
+					"query": [
+						{
+							"key": "min_average_covered_charges",
+							"value": "30000",
+							"equals": true
+						},
+						{
+							"key": "max_average_covered_charges",
+							"value": "30003",
+							"equals": true
+						}
+					]
+				},
+				"description": "Retrieves providers that have covered charges between max and min value."
+			},
+			"response": [
+				{
+					"id": "307f7552-8be8-4a4e-8b32-4ce39f382ba4",
+					"name": "Average Covered Charges Range",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3000/providers?min_average_covered_charges=30000&max_average_covered_charges=30003",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"providers"
+							],
+							"query": [
+								{
+									"key": "min_average_covered_charges",
+									"value": "30000",
+									"equals": true
+								},
+								{
+									"key": "max_average_covered_charges",
+									"value": "30003",
+									"equals": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2781",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 08 Jan 2018 19:56:45 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"add-KXY/32izU0EmoGQWJ47K2GQjfks\"",
+							"name": "ETag",
+							"description": "An identifier for a specific version of a resource, often a message digest"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"responseTime": 102,
+					"body": "[\n   {\n      \"Provider\": \"GREENVIEW REGIONAL HOSPITAL\",\n      \"Provider Street Address\": \"1801 ASHLEY CIRCLE\",\n      \"Provider City\": \"BOWLING GREEN\",\n      \"Provider State\": \"KY\",\n      \"Provider Zip Code\": \"42104\",\n      \"Total Discharges\": 14,\n      \"Average Covered Charges\": \"$30,000.57\",\n      \"Average Total Payments\": \"$5,004.50\",\n      \"Average Medicare Payments\": \"$3,721.07\"\n   },\n   {\n      \"Provider\": \"MATAGORDA REGIONAL MEDICAL CENTER\",\n      \"Provider Street Address\": \"104 7TH STREET\",\n      \"Provider City\": \"BAY CITY\",\n      \"Provider State\": \"TX\",\n      \"Provider Zip Code\": \"77414\",\n      \"Total Discharges\": 11,\n      \"Average Covered Charges\": \"$30,002.18\",\n      \"Average Total Payments\": \"$11,993.45\",\n      \"Average Medicare Payments\": \"$11,481.81\"\n   },\n   {\n      \"Provider\": \"MEMORIAL HOSPITAL OF MARTINSVILLE & HENRY COUNTY\",\n      \"Provider Street Address\": \"320 HOSPITAL DRIVE\",\n      \"Provider City\": \"MARTINSVILLE\",\n      \"Provider State\": \"VA\",\n      \"Provider Zip Code\": \"24115\",\n      \"Total Discharges\": 19,\n      \"Average Covered Charges\": \"$30,002.63\",\n      \"Average Total Payments\": \"$8,327.68\",\n      \"Average Medicare Payments\": \"$7,857.78\"\n   },\n   {\n      \"Provider\": \"KATHERINE SHAW BETHEA HOSPITAL\",\n      \"Provider Street Address\": \"403 E 1ST ST\",\n      \"Provider City\": \"DIXON\",\n      \"Provider State\": \"IL\",\n      \"Provider Zip Code\": \"61021\",\n      \"Total Discharges\": 19,\n      \"Average Covered Charges\": \"$30,001.57\",\n      \"Average Total Payments\": \"$4,886.26\",\n      \"Average Medicare Payments\": \"$3,997.63\"\n   },\n   {\n      \"Provider\": \"SCOTTSDALE HEALTHCARE-OSBORN MEDICAL CENTER\",\n      \"Provider Street Address\": \"7400 EAST OSBORN ROAD\",\n      \"Provider City\": \"SCOTTSDALE\",\n      \"Provider State\": \"AZ\",\n      \"Provider Zip Code\": \"85251\",\n      \"Total Discharges\": 23,\n      \"Average Covered Charges\": \"$30,000.65\",\n      \"Average Total Payments\": \"$6,823.69\",\n      \"Average Medicare Payments\": \"$5,416.13\"\n   },\n   {\n      \"Provider\": \"HILLCREST BAPTIST MEDICAL CENTER\",\n      \"Provider Street Address\": \"100 HILLCREST MEDICAL BLVD\",\n      \"Provider City\": \"WACO\",\n      \"Provider State\": \"TX\",\n      \"Provider Zip Code\": \"76712\",\n      \"Total Discharges\": 44,\n      \"Average Covered Charges\": \"$30,000.20\",\n      \"Average Total Payments\": \"$10,705.56\",\n      \"Average Medicare Payments\": \"$9,759.13\"\n   },\n   {\n      \"Provider\": \"MILES MEMORIAL HOSPITAL (LINCOLN COUNTY HEALTHCARE\",\n      \"Provider Street Address\": \"35 MILES STREET\",\n      \"Provider City\": \"DAMARISCOTTA\",\n      \"Provider State\": \"ME\",\n      \"Provider Zip Code\": \"4543\",\n      \"Total Discharges\": 47,\n      \"Average Covered Charges\": \"$30,000.27\",\n      \"Average Total Payments\": \"$17,401.80\",\n      \"Average Medicare Payments\": \"$15,895.04\"\n   }\n]"
+				}
+			]
+		},
+		{
+			"name": "Average Medicare Payments Range",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "962e20dc-58eb-4793-978b-3c72290bd0de",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Check that correct providers are retrieved for given medicare payment range\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(\"Hey:\"+jsonData);",
+							"    var expectedResponse = pm.environment.get(\"medicare-payment-30250-30259-range\");",
+							"    pm.expect(JSON.stringify(jsonData)).to.deep.equal(expectedResponse);",
+							"",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "d25f1a02-6494-449a-93d7-98f5380f7583",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/providers?min_average_medicare_payments=30250&max_average_medicare_payments=30259",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"providers"
+					],
+					"query": [
+						{
+							"key": "min_average_medicare_payments",
+							"value": "30250",
+							"equals": true
+						},
+						{
+							"key": "max_average_medicare_payments",
+							"value": "30259",
+							"equals": true
+						}
+					]
+				},
+				"description": "Retrieves providers that have paid an average medicare payment between max and min value."
+			},
+			"response": [
+				{
+					"id": "4602f997-20a7-4d99-ab5c-fc3b6fc8a7fa",
+					"name": "Average Medicare Payments Range",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3000/providers?min_average_medicare_payments=30250&max_average_medicare_payments=30259",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"providers"
+							],
+							"query": [
+								{
+									"key": "min_average_medicare_payments",
+									"value": "30250",
+									"equals": true
+								},
+								{
+									"key": "max_average_medicare_payments",
+									"value": "30259",
+									"equals": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1566",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 08 Jan 2018 19:15:22 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"61e-0M+0XF67c3L2AmPq5gPhDTv64IY\"",
+							"name": "ETag",
+							"description": "An identifier for a specific version of a resource, often a message digest"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"responseTime": 64,
+					"body": "[\n   {\n      \"Provider\": \"HENRY MEDICAL CENTER, INC\",\n      \"Provider Street Address\": \"1133 EAGLE'S LANDING PARKWAY\",\n      \"Provider City\": \"STOCKBRIDGE\",\n      \"Provider State\": \"GA\",\n      \"Provider Zip Code\": \"30281\",\n      \"Total Discharges\": 21,\n      \"Average Covered Charges\": \"$104,259.14\",\n      \"Average Total Payments\": \"$30,808.61\",\n      \"Average Medicare Payments\": \"$30,257.61\"\n   },\n   {\n      \"Provider\": \"JOHN MUIR MEDICAL CENTER - CONCORD CAMPUS\",\n      \"Provider Street Address\": \"2540 EAST ST\",\n      \"Provider City\": \"CONCORD\",\n      \"Provider State\": \"CA\",\n      \"Provider Zip Code\": \"94520\",\n      \"Total Discharges\": 29,\n      \"Average Covered Charges\": \"$226,324.89\",\n      \"Average Total Payments\": \"$30,794.58\",\n      \"Average Medicare Payments\": \"$30,253.10\"\n   },\n   {\n      \"Provider\": \"MEMORIAL HOSPITAL OF CARBONDALE\",\n      \"Provider Street Address\": \"405 W JACKSON\",\n      \"Provider City\": \"CARBONDALE\",\n      \"Provider State\": \"IL\",\n      \"Provider Zip Code\": \"62902\",\n      \"Total Discharges\": 16,\n      \"Average Covered Charges\": \"$77,946.81\",\n      \"Average Total Payments\": \"$30,882.31\",\n      \"Average Medicare Payments\": \"$30,257.56\"\n   },\n   {\n      \"Provider\": \"AUBURN COMMUNITY HOSPITAL\",\n      \"Provider Street Address\": \"17 LANSING STREET\",\n      \"Provider City\": \"AUBURN\",\n      \"Provider State\": \"NY\",\n      \"Provider Zip Code\": \"13021\",\n      \"Total Discharges\": 12,\n      \"Average Covered Charges\": \"$49,721.66\",\n      \"Average Total Payments\": \"$31,193.16\",\n      \"Average Medicare Payments\": \"$30,255.08\"\n   }\n]"
+				}
+			]
+		},
+		{
+			"name": "Provider Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/providers?id=1001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"providers"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1001",
+							"equals": true
+						}
+					]
+				},
+				"description": "Retrieves specific provider by id."
+			},
+			"response": []
+		},
+		{
+			"name": "Provider Drg Definition",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/providers?drg_definition=039 - EXTRACRANIAL PROCEDURES W/O CC/MCC",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"providers"
+					],
+					"query": [
+						{
+							"key": "drg_definition",
+							"value": "039 - EXTRACRANIAL PROCEDURES W/O CC/MCC",
+							"equals": true
+						}
+					]
+				},
+				"description": "Retrieves specific provider by drg_definition."
+			},
+			"response": []
+		}
+	]
+}
