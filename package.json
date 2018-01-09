@@ -4,7 +4,7 @@
   "description": "A healthcare provider REST API",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www --exec babel-node --presets es2015,stage-2",
+    "start": "nodemon ./bin/www --exec babel-node --presets es2015,stage-2",
     "test": "./node_modules/.bin/mocha --require babel-core/register test/"
   },
   "engines": {
