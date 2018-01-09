@@ -13,12 +13,12 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://localhost:3000/providers",
+					"raw": "http://localhost:5000/providers",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "5000",
 					"path": [
 						"providers"
 					]
@@ -34,12 +34,12 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://localhost:3000/providers?city=Eureka",
+					"raw": "http://localhost:5000/providers?city=Eureka",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "5000",
 					"path": [
 						"providers"
 					],
@@ -62,12 +62,12 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://localhost:3000/providers?street_address=2700 DOLBEER ST",
+					"raw": "http://localhost:5000/providers?street_address=2700 DOLBEER ST",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "5000",
 					"path": [
 						"providers"
 					],
@@ -90,12 +90,12 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://localhost:3000/providers?city=Eureka",
+					"raw": "http://localhost:5000/providers?city=Eureka",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "5000",
 					"path": [
 						"providers"
 					],
@@ -118,12 +118,12 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://localhost:3000/providers?state=CA",
+					"raw": "http://localhost:5000/providers?state=CA",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "5000",
 					"path": [
 						"providers"
 					],
@@ -146,12 +146,12 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://localhost:3000/providers?zip_code=90210",
+					"raw": "http://localhost:5000/providers?zip_code=90210",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "5000",
 					"path": [
 						"providers"
 					],
@@ -200,12 +200,12 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://localhost:3000/providers?min_discharges=300&max_discharges=301",
+					"raw": "http://localhost:5000/providers?min_discharges=300&max_discharges=301",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "5000",
 					"path": [
 						"providers"
 					],
@@ -259,12 +259,12 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://localhost:3000/providers?min_average_covered_charges=30000&max_average_covered_charges=30003",
+					"raw": "http://localhost:5000/providers?min_average_covered_charges=30000&max_average_covered_charges=30003",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "5000",
 					"path": [
 						"providers"
 					],
@@ -292,12 +292,12 @@
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:3000/providers?min_average_covered_charges=30000&max_average_covered_charges=30003",
+							"raw": "http://localhost:5000/providers?min_average_covered_charges=30000&max_average_covered_charges=30003",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "5000",
 							"path": [
 								"providers"
 							],
@@ -406,12 +406,12 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://localhost:3000/providers?min_average_medicare_payments=30250&max_average_medicare_payments=30259",
+					"raw": "http://localhost:5000/providers?min_average_medicare_payments=30250&max_average_medicare_payments=30259",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "5000",
 					"path": [
 						"providers"
 					],
@@ -439,12 +439,12 @@
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:3000/providers?min_average_medicare_payments=30250&max_average_medicare_payments=30259",
+							"raw": "http://localhost:5000/providers?min_average_medicare_payments=30250&max_average_medicare_payments=30259",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "5000",
 							"path": [
 								"providers"
 							],
@@ -517,12 +517,12 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://localhost:3000/providers?id=1001",
+					"raw": "http://localhost:5000/providers?id=1001",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "5000",
 					"path": [
 						"providers"
 					],
@@ -545,12 +545,12 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://localhost:3000/providers?drg_definition=039 - EXTRACRANIAL PROCEDURES W/O CC/MCC",
+					"raw": "http://localhost:5000/providers?drg_definition=039 - EXTRACRANIAL PROCEDURES W/O CC/MCC",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "5000",
 					"path": [
 						"providers"
 					],
