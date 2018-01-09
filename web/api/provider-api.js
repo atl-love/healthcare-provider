@@ -10,7 +10,7 @@ var options = {
 
 var pgp = require('pg-promise')(options);
 //var connectionString = 'postgres://localhost:5432/providers'; //use for local connections
-var connectionString = 'postgres://uamlukahrhpuax:24339070d543566f4d00aadf38afa2ab7ed854c0e747bac8897b5b1018e2dbca@ec2-23-21-246-25.compute-1.amazonaws.com:5432/d60mn8d3mllf7g:5432/providers'; //use for heroku
+var connectionString = 'postgres://uamlukahrhpuax:24339070d543566f4d00aadf38afa2ab7ed854c0e747bac8897b5b1018e2dbca@ec2-23-21-246-25.compute-1.amazonaws.com:5432/d60mn8d3mllf7g'; //use for heroku
 var db = pgp(connectionString);
 
 /**
