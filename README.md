@@ -32,6 +32,8 @@ To deploy locally:
 
   View live demo on [Heroku](https://serene-hamlet-17162.herokuapp.com/).
 
+  View [sample query output on Heroku](https://serene-hamlet-17162.herokuapp.com/providers?min_average_medicare_payments=30250&max_average_medicare_payments=30259).
+
 ## API Reference
 Time provided and with more REST endpoints, I'd use Swagger for documentation. Below are
 all the query params that can be searched:
