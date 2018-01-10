@@ -66,18 +66,22 @@ GET /providers?max_discharges=50&min_discharges=609875&max_average_covered_charg
 ## Automated Tests
 A selection of automated tests were perfored using Mocha + Chai for the helper functions and Postman + Newman for testing the API. To run Mocha/Chai tests, from the parent directory enter the following:
 
-```$ ./node_modules/.bin/mocha --require babel-core/register test/
+```
+$ ./node_modules/.bin/mocha --require babel-core/register test/
 ```
 
 Sample Output:
+
 ![Chai+Mocha Screenshot](/public/views/images/Chai_Mocha_Screenshot.jpg "Chai Mocha Screenshot")
 
 For running Postman/Newman tests enter:
 
-```$ newman run collections/HealthcareProviderAPI.postman_collection.json -e collections/HealthcareProviderEnvironment.postman_environment.json
+```
+$ newman run collections/HealthcareProviderAPI.postman_collection.json -e collections/HealthcareProviderEnvironment.postman_environment.json
 ```
 
 Sample Output:
+
 ![Postman+Newman Screenshot](/public/views/images/Postman_Newman_Screenshot.jpg "Postman+Newman Screenshot")
 
 ##Postman
