@@ -1,10 +1,9 @@
 # Design and Deploy a RESTful API for a Healthcare Provider
 
-## Overview + Architecture
-A simple REST API using Nodejs, postgresql, Lodash, ES6, Mocha, Chai, and Newman. The code is hosted on [Heroku](https://serene-hamlet-17162.herokuapp.com/).
+## Overview + Sample API Endpoints
+This project is a simple REST API using Nodejs, postgresql, Lodash, ES6, Mocha, Chai, and Newman. The code is hosted on [Heroku](https://serene-hamlet-17162.herokuapp.com/).
 
-#### Sample API Endpoints
-<b>Note</b>: When retrieving ```\providers```, the data may take a 5-10 seconds to load because of the size of the data set.
+Below are a few example API endpoints with links to the hosted corresponding PUT requests. <b>Note</b>: When retrieving ```\providers```, the data may take up to 5-10 seconds to load because of the size of the data set.
 
 REST URL | Description
 --------- | -----------
