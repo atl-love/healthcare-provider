@@ -9,7 +9,7 @@ REST URL | Description
 --------- | -----------
 [/providers](https://serene-hamlet-17162.herokuapp.com/providers) | A list of all providers
 [/providers?state=CA&zip_code=95661](https://serene-hamlet-17162.herokuapp.com/providers?state=CA&zip_code=95661)| A list of all providers for a particular state with a specific zip code
-[/providers?max_average_covered_charges=9057&min_average_covered_charges=55&min_average_medicare_payments=6000&max_average_medicare_payments=10000&state=AL](https://serene-hamlet-17162.herokuapp.com/providers?max_average_covered_charges=9057&min_average_medicare_payments=6000&max_average_medicare_payments=10000&state=AL) | A list of all providers for a particular state with parameters max average covered charges, medicare payment range, and state.
+[/providers?max_average_covered_charges=9057<br>&min_average_covered_charges=55<br>&min_average_medicare_payments=6000<br>&max_average_medicare_payments=10000<br>&state=AL](https://serene-hamlet-17162.herokuapp.com/providers?max_average_covered_charges=9057&min_average_medicare_payments=6000&max_average_medicare_payments=10000&state=AL) | A list of all providers for a particular state with parameters max average covered charges, medicare payment range, and state.
 
 ### Prerequisites
 pgfutter
