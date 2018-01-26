@@ -1,16 +1,16 @@
 # Design and Deploy a RESTful API for a Healthcare Provider
 
 ## Overview + Architecture
-Nodejs + postgresql + Lodash/ES6 + Mocha/Chai
-**Add Diagrams**
+A simple REST API using Nodejs, postgresql, Lodash, ES6, Mocha, Chai, and Newman. The code is hosted on [Heroku](https://serene-hamlet-17162.herokuapp.com/).
 
-### Assumptions
-1. For the query string, the assumption is that an array of values will not be received. For example, this case will not be handled:
-GET /providers?state=CA&state=GA&state=KY
-2. In a production environment, there are special considerations, such as visibility and security, which were not heavily considered in this iteration.
-3. Assuming that the user is entering valid data. There is some input validation, but not extensive.
-4. Invalid SQL queries will result in a message to the user that says, "Malformed request. Error retrieving data from database."
-5. Depending on the browser, for large responses the browser may crash. A design consideration to improve this would be to do "lazy-loading" or use a tool/framework to load part of the data at a time (i.e. AJAX, react-list, retrieve only first 500 sql queries, etc).
+#### Sample API Endpoints
+<b>Note</b>: When retrieving ```\providers```, the data may take a 5-10 seconds to load because of the size of the data set.
+
+REST URL | Description
+--------- | -----------
+[/providers](https://serene-hamlet-17162.herokuapp.com/providers) | A list of all providers
+[/providers?state=CA&zip_code=95661](https://serene-hamlet-17162.herokuapp.com/providers?state=CA&zip_code=95661)| A list of all providers for a particular state with a specific zip code
+[/providers?max_average_covered_charges=9057&min_average_covered_charges=55&min_average_medicare_payments=6000&max_average_medicare_payments=10000&state=AL](https://serene-hamlet-17162.herokuapp.com/providers?max_average_covered_charges=9057&min_average_medicare_payments=6000&max_average_medicare_payments=10000&state=AL) | A list of all providers for a particular state with parameters max average covered charges, medicare payment range, and state.
 
 ### Prerequisites
 pgfutter
@@ -33,6 +33,15 @@ To deploy locally:
   View live demo on [Heroku](https://serene-hamlet-17162.herokuapp.com/).
 
   View [sample query output on Heroku](https://serene-hamlet-17162.herokuapp.com/providers?min_average_medicare_payments=30250&max_average_medicare_payments=30259).
+  
+### Assumptions
+1. For the query string, the assumption is that an array of values will not be received. For example, this case will not be handled:
+GET /providers?state=CA&state=GA&state=KY
+2. In a production environment, there are special considerations, such as visibility and security, which were not heavily considered in this iteration.
+3. Assuming that the user is entering valid data. There is some input validation, but not extensive.
+4. Invalid SQL queries will result in a message to the user that says, "Malformed request. Error retrieving data from database."
+5. Depending on the browser, for large responses the browser may crash. A design consideration to improve this would be to do "lazy-loading" or use a tool/framework to load part of the data at a time (i.e. AJAX, react-list, retrieve only first 500 sql queries, etc).
+
 
 ## API Reference
 Time provided and with more REST endpoints, I'd use Swagger for documentation. Below are
@@ -62,6 +71,7 @@ GET /providers?max_discharges=50&min_discharges=609875&max_average_covered_charg
 &min_average_covered_charges=40000&min_average_medicare_payments=6000
 &max_average_medicare_payments=10000&state=GA
 ```
+See *Sample API Endpoints* section above for more examples.
 
 ## Automated Tests
 A selection of automated tests were perfored using Mocha + Chai for the helper functions and Postman + Newman for testing the API. To run Mocha/Chai tests, from the parent directory enter the following:
